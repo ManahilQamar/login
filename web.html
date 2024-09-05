@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Portfolio Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 10%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: 0.3s;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: white;
+            text-shadow: 0 0 8px palevioletred, 0 0 12px palevioletred;
+            transition: transform 0.5s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            text-shadow: 0 0 8px palevioletred, 0 0 12px palevioletred;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: palevioletred;
+            border-bottom: 1px solid palevioletred;
+        }
+
+      
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        transition: 0.2s;
+    }
+
+        .home {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 3rem 10%;
+            margin-top: 80px;
+            gap: 7rem;
+        }
+
+        .home-img img {
+            width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px palevioletred;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 15px 5px palevioletred;
+            }
+
+            100% {
+                box-shadow: 0 0 30px 10px palevioletred;
+            }
+        }
+
+        .home-content {
+            max-width: 600px;
+        }
+
+        .home-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .home-content h1 span,
+        .type-animation {
+            text-shadow: 0 0 8px palevioletred, 0 0 12px palevioletred;
+        }
+
+        .home-content h3.typing-text {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .home-content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social .bx {
+            padding: 8px;
+            border: 1px solid palevioletred;
+            color: palevioletred;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .social .bx:hover {
+            background: palevioletred;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 10%;
+                background-color: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+                border-radius: 5px;
+                gap: 1rem;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            .home {
+                flex-direction: column;
+                padding: 4rem 5%;
+            }
+
+            .home-img img {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .home-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .social {
+                gap: 10px;
+            }
+        }
+
+        .btn {
+        position: relative;
+        top: 23px;
+        padding: 10px 20px;
+        background-color: palevioletred;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition:  transform 0.3s, box-shadow 0.3s;
+        box-shadow:  0 0 8px peachpuff;
+
+    }
+    .btn:hover {
+        transform: scale(1);
+        box-shadow: 0 0 15px palevioletred;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">MenoCoder</a>
+        <nav>
+            <ul>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="logo.png" alt="Profile Image">
+        </div>
+        <div class="home-content">
+            <h1>Hi! it's <span>MenoCoder</span></h1>
+            <h3 class="typing-text">I'm a <span class="type-animation"></span></h3>
+            <p>Hello! I’m MenoCoder, a passionate Frontend Developer. When I'm not coding, you can find me exploring the latest design trends or working on my YouTube channel, where I share tips and tutorials on web development.</p>
+
+            <div class="social">
+                <a href=""><i class='bx bxl-facebook'></i></a>
+                <a href=""><i class='bx bxl-twitter'></i></a>
+                <a href=""><i class='bx bxl-instagram'></i></a>
+                <a href=""><i class='bx bxl-youtube'></i></a>
+                <a href=""><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <button class="btn">Click Here</button>
+
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+
+        new Typed('.type-animation', {
+            strings: ['Frontend Developer', 'YouTuber', 'Designer'],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
